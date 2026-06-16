@@ -1,0 +1,205 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme for Muvin SaaS
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    /* Modern gradient backgrounds */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+
+    /* Vibrant Purple Primary */
+    --primary: 270 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft secondary for accents */
+    --secondary: 200 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted colors */
+    --muted: 240 5% 90%;
+    --muted-foreground: 240 5% 45%;
+
+    /* Accent colors */
+    --accent: 270 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 240 5% 88%;
+    --input: 240 5% 93%;
+    --ring: 270 100% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 10% 8%;
+    --sidebar-primary: 270 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 93%;
+    --sidebar-accent-foreground: 240 10% 8%;
+    --sidebar-border: 240 5% 88%;
+    --sidebar-ring: 270 100% 55%;
+  }
+
+  .dark {
+    --background: 220 40% 14%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 45% 18%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 45% 18%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 270 100% 60%;
+    --primary-foreground: 220 40% 14%;
+
+    --secondary: 200 100% 60%;
+    --secondary-foreground: 220 40% 14%;
+
+    --muted: 220 30% 30%;
+    --muted-foreground: 220 20% 70%;
+
+    --accent: 270 100% 60%;
+    --accent-foreground: 220 40% 14%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 220 40% 14%;
+
+    --border: 220 35% 25%;
+    --input: 220 40% 22%;
+    --ring: 270 100% 60%;
+
+    --sidebar-background: 220 45% 18%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 270 100% 60%;
+    --sidebar-primary-foreground: 220 40% 14%;
+    --sidebar-accent: 220 30% 30%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 35% 25%;
+    --sidebar-ring: 270 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  /* Smooth gradient backgrounds */
+  .gradient-mesh {
+    @apply bg-gradient-to-br from-purple-50 to-blue-50 dark:from-slate-900 dark:to-slate-800;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl dark:bg-slate-800/80 border border-white/20 dark:border-slate-700/30;
+  }
+
+  /* Smooth shadows */
+  .shadow-glow {
+    @apply shadow-lg shadow-purple-500/20;
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  /* Button base */
+  .btn-base {
+    @apply px-6 py-3 rounded-lg font-semibold transition-smooth inline-flex items-center justify-center cursor-pointer;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.5s ease-out;
+}
+
+.animate-slide-in-down {
+  animation: slide-in-down 0.5s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}

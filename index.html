@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muvin SaaS</title>
+    <link rel="icon" type="image/svg+xml" href="/muvin-icon.svg" />
+  </head>
+  <script>
+  // This forces the theme to be 'light' on the first load
+  if (!localStorage.getItem('theme')) {
+    document.documentElement.classList.remove('dark');
+  }
+</script>
+  <body>
+    <div id="root"></div>
+
+    <script type="module" src="/client/App.tsx"></script>
+  </body>
+</html>
